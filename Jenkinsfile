@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/SGgda/PBL-3-7-.git'
+                git branch: 'main', url: 'https://github.com/SGgda/PBL-3-7-.git'
             }
         }
 
