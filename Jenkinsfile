@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_HUB_USER = "your_dockerhub_username" // Change this
+        DOCKER_HUB_USER = "sloth69"
         IMAGE_NAME = "pbl-app"
         IMAGE_TAG = "latest"
     }
@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/your-username/your-repo.git' // Change this
+                git 'https://github.com/SGgda/PBL-3-7-.git'
             }
         }
 
@@ -25,7 +25,7 @@ pipeline {
         stage('Push to Docker Hub') {
             steps {
                 script {
-                    docker.withRegistry('', 'docker-hub-credentials-id') { // Add credentials in Jenkins
+                    docker.withRegistry('', 'dockerhub') { // Using your ID: dockerhub
                         dockerImage.push()
                     }
                 }
