@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pbl-app-deployment
+  labels:
+    app: pbl-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pbl-app
+  template:
+    metadata:
+      labels:
+        app: pbl-app
+    spec:
+      containers:
+      - name: pbl-app
+        image: ${DOCKER_HUB_USER}/pbl-app:latest
+        ports:
+        - containerPort: 80
